@@ -5,11 +5,12 @@ class Config:
     OWNER_ID = os.getenv("OWNER_ID", "0")
     TELEGRAM_API = os.getenv("TELEGRAM_API", "0")
     TELEGRAM_HASH = os.getenv("TELEGRAM_HASH", "")
+    DATABASE_URL = os.getenv("DATABASE_URL", "")  # ← **इसे Add किया**
 
     @classmethod
     def load(cls):
         """Ensure required environment variables are set"""
-        for key in ["BOT_TOKEN", "OWNER_ID", "TELEGRAM_API", "TELEGRAM_HASH"]:
+        for key in ["BOT_TOKEN", "OWNER_ID", "TELEGRAM_API", "TELEGRAM_HASH", "DATABASE_URL"]:
             value = getattr(cls, key)
             if isinstance(value, str):
                 value = value.strip()
